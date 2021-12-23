@@ -38,9 +38,17 @@ for i in range(num1, num1*num2+1):
 # 공약수 : num1 % i == 0 and num2 % i == 0
 # 최대 : (num1 or num2) ~ 내려오면서 공약수? 검사. 1까지 내려오면서 검사. (for 반복)
 
+for  i in range(num1, 1, -1):
+    if num1 % i == 0 and num2 % i == 0:
+        # i가 두 숫자를 동시에 나눔. (공약수)
+        # 내려오는 for문에서 최초 발견 : 제일 큰 숫자. => 최대 공약수 발견
+        gcf = i
+        break
 
 # 결과가 몇인지? 출력
 # 상황에 따라 조건/반복 이용 출력.
 
 # lcm에는 발견된 최소공배수가 저장됨.
 print(f'최소 공배수 : {lcm}')
+
+print(f'최대 공약수 : {gcf}')
