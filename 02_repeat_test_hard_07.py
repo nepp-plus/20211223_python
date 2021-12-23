@@ -4,13 +4,13 @@
 my_num_list = []
 
 # for로 6회 반복.
-for i  in range(6):
+for my_num  in range(6):
     
     # 제대로 된 숫자가 올때까지, 해당 위치의 숫자를 다시 입력받아야함.
     # 무한 반복 => 제대로 된 숫자면 break
     
     while True:
-        input_num =  int( input(f'{i+1}번째 숫자 입력 : ') )
+        input_num =  int( input(f'{my_num+1}번째 숫자 입력 : ') )
         
         # 받은 숫자가 목록에 추가해도 되는 숫자인가? 검사. => 통과시에만 추가하자.
         
@@ -33,4 +33,29 @@ for i  in range(6):
                 
     
 # test - 목록에 뭐가 들어있는지 출력.
+print(my_num_list)
+
+
+# 입력한 값들을 작은 수 ~ 큰 수 순서로 정리.
+# 파이썬 기능 대신, for문 연습. => Bubble sort 작성.
+
+# 순서를 바꾸면서, 제일 큰 숫자를 뒤로 보내는 과정을 6번 반복. (6개자리 모두 정렬되게)
+for i  in range(len(my_num_list)):
+    
+    # 두개의 숫자를 꺼내서, 순서가 제대로 되었는지 확인하는 반복.
+    # 순서가 반대라면? 그 둘의 위치를 서로 변경.
+    
+    # j : 0~5까지 간다면 => j+1 : 1~6까지 간다.
+    # 6칸짜리 목록 : 0~5번까지만 존재함.   j는 0~4까지만 가야, 올바르게 동작.
+    
+    for j  in range(len(my_num_list) - 1):
+        if my_num_list[j] > my_num_list[j+1]:
+            # 앞의 숫자가 더 큰 상황 발견.
+            # 순서가 잘못됨. => j / j+1번째 숫자를 서로 바꿔줘야함.
+            
+            back_up =  my_num_list[j]
+            my_num_list[j] = my_num_list[j+1]
+            my_num_list[j+1] = back_up
+            
+# 정렬 결과 확인.
 print(my_num_list)
