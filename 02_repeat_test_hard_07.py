@@ -15,18 +15,13 @@ for i  in range(6):
         # 받은 숫자가 목록에 추가해도 되는 숫자인가? 검사. => 통과시에만 추가하자.
         
         # 기준 1. 1~45 이내의 숫자가 맞는가?
-        is_range_ok =  input_num in range(1, 46)
+        is_range_ok =  input_num in range(1, 46) # 1 ~ 45 범위에 있는가?
         
         # 기준 2. 중복이 아닌가?
         # 기준 2. 이미 등록된 숫자인가? 중복이 아니어야 목록에 추가.
         # my_num_list 내부의 숫자들을 하나씩 꺼내보자. => input_num과 같은 숫자 발견하면? 중복검사 탈락.
         
-        is_duplicated = False # 중복되지 않았다고 전제하자.
-        
-        for  my_num  in  my_num_list:
-            if input_num == my_num:
-                # 같은 숫자 발견 : 중복이다.
-                is_duplicated = True
+        is_duplicated = input_num in my_num_list  # 등록 된 숫자에, 입력한 숫자가 있는가?
         
         # 범위 ok 이고, 중복은 아니어야 목록에 추가.
         
